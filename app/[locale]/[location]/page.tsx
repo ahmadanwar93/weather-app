@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { getLocationBySlug } from "@/lib/api";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/header";
+import { ForecastGrid } from "@/components/forecast-grid";
 
 type Props = {
   params: Promise<{
@@ -37,6 +38,9 @@ export default async function WeatherPage({ params }: Props) {
 
   // Get today's forecast (first in sorted array)
   const today = locationData.forecasts[0];
+
+  const upcomingDays = locationData.forecasts.slice(1, 7);
+
   if (!today) {
     return (
       <main className="min-h-screen p-8">
@@ -132,6 +136,7 @@ export default async function WeatherPage({ params }: Props) {
           </div>
         </div>
       </div>
+      <ForecastGrid forecasts={upcomingDays} />
     </main>
   );
 }
