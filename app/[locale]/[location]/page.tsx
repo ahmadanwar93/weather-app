@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { getLocationBySlug } from "@/lib/api";
 import { notFound } from "next/navigation";
+import { Header } from "@/components/header";
 
 type Props = {
   params: Promise<{
@@ -18,7 +19,7 @@ export default async function WeatherPage({ params }: Props) {
   // destructuring then renaming
   // same as const locationSlug = params.location;
   // we want to be clear that the location is not the actual location object, it is a slug
-  const { location: locationSlug } = await params;
+  const { locale, location: locationSlug } = await params;
 
   // Fetch weather data for this location
   const locationData = await getLocationBySlug(locationSlug);
@@ -39,6 +40,7 @@ export default async function WeatherPage({ params }: Props) {
   if (!today) {
     return (
       <main className="min-h-screen p-8">
+        <Header currentLocationSlug={locationSlug} locale={locale} />
         <div className="border border-zinc-700 p-6 max-w-4xl">
           <p className="text-zinc-500">No forecast data available</p>
         </div>
@@ -48,19 +50,7 @@ export default async function WeatherPage({ params }: Props) {
 
   return (
     <main className="min-h-screen p-8">
-      <header className="border border-zinc-700 p-4 mb-6 max-w-4xl">
-        <div className="flex justify-between items-center">
-          <div>
-            <h1 className="text-lg tracking-wide">{t("appTitle")}</h1>
-            <p className="text-zinc-500 text-sm">{t("subtitle")}</p>
-          </div>
-          <div className="text-sm">
-            <span className="text-cyan-400">{t("status")}:</span>
-            <span className="ml-2 text-green-500">{t("online")}</span>
-          </div>
-        </div>
-      </header>
-
+      <Header currentLocationSlug={locationSlug} locale={locale} />
       <div className="border border-zinc-700 p-6 max-w-4xl">
         <div className="text-zinc-500 text-sm mb-4">
           {tw("today").toUpperCase()} /{" "}
