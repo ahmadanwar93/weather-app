@@ -44,7 +44,11 @@ export default async function WeatherPage({ params }: Props) {
   if (!today) {
     return (
       <main className="min-h-screen p-8">
-        <Header currentLocationSlug={locationSlug} locale={locale} />
+        <Header
+          currentLocationSlug={locationSlug}
+          locale={locale}
+          lastUpdated={new Date().toISOString()}
+        />
         <div className="border border-zinc-700 p-6 max-w-4xl">
           <p className="text-zinc-500">No forecast data available</p>
         </div>
@@ -55,7 +59,11 @@ export default async function WeatherPage({ params }: Props) {
   return (
     <main className="min-h-screen p-8">
       <div className="max-w-5xl mx-auto">
-        <Header currentLocationSlug={locationSlug} locale={locale} />
+        <Header
+          currentLocationSlug={locationSlug}
+          locale={locale}
+          lastUpdated={new Date().toISOString()}
+        />
         <div className="border border-zinc-700 p-6 max-w-5xl">
           <div className="text-zinc-500 text-sm mb-4">
             {tw("today").toUpperCase()} /{" "}
@@ -128,7 +136,7 @@ export default async function WeatherPage({ params }: Props) {
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-zinc-800 text-xs text-zinc-500">
+          {/* <div className="mt-6 pt-4 border-t border-zinc-800 text-xs text-zinc-500">
             <div>DATA: MET MALAYSIA</div>
             <div className="mt-1">
               {t("updated").toUpperCase()}:{" "}
@@ -137,7 +145,7 @@ export default async function WeatherPage({ params }: Props) {
                 {t("online").toUpperCase()}
               </span>
             </div>
-          </div>
+          </div> */}
         </div>
         <ForecastGrid forecasts={upcomingDays} />
       </div>

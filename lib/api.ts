@@ -99,15 +99,16 @@ export async function getAllLocationOptions(): Promise<
 > {
   const data = await getWeatherData();
   const grouped = groupByLocation(data);
-
   // we sort it for better UX
   // grouped.values() return an iterator, we have to convert to array first
   // either use Array.from or spread operator
-  return Array.from(grouped.values())
+  const choice = Array.from(grouped.values())
     .map((location) => ({
       locationId: location.locationId,
       locationName: location.locationName,
       slug: locationToSlug(location.locationName),
     }))
     .sort((a, b) => a.locationName.localeCompare(b.locationName));
+
+  return choice;
 }

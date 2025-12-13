@@ -44,7 +44,7 @@ export async function ForecastGrid({ forecasts }: ForecastGridProps) {
               </div>
 
               <div className="pt-2 border-t border-zinc-800 space-y-1 text-xs">
-                <div className="flex justify-between">
+                <div className="flex  gap-3">
                   <span className="text-zinc-500">
                     {tw("morning").toUpperCase()}
                   </span>
@@ -52,7 +52,7 @@ export async function ForecastGrid({ forecasts }: ForecastGridProps) {
                     {tc(forecast.morning_forecast)}
                   </span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex gap-3">
                   <span className="text-zinc-500">
                     {tw("afternoon").toUpperCase()}
                   </span>
@@ -60,7 +60,7 @@ export async function ForecastGrid({ forecasts }: ForecastGridProps) {
                     {tc(forecast.afternoon_forecast)}
                   </span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex gap-3">
                   <span className="text-zinc-500">
                     {tw("night").toUpperCase()}
                   </span>

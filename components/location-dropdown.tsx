@@ -62,7 +62,8 @@ export function LocationDropdown({
               }
             `}
           >
-            {location.locationName}
+            {location.locationName}{" "}
+            <span className="text-zinc-500 ml-2">[{location.locationId}]</span>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

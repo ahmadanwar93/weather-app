@@ -6,9 +6,14 @@ import { LanguageToggle } from "./language-toggle";
 type HeaderProps = {
   currentLocationSlug: string;
   locale: string;
+  lastUpdated: string;
 };
 
-export async function Header({ currentLocationSlug, locale }: HeaderProps) {
+export async function Header({
+  currentLocationSlug,
+  locale,
+  lastUpdated,
+}: HeaderProps) {
   const t = await getTranslations("common");
   const locations = await getAllLocationOptions();
 
@@ -28,6 +33,20 @@ export async function Header({ currentLocationSlug, locale }: HeaderProps) {
           <div className="text-sm">
             <span className="text-cyan-400">{t("status")}: </span>
             <span className="ml-2 text-green-500">{t("online")}</span>
+          </div>
+          <div className="text-xs text-zinc-500">
+            DATA: <span className="text-zinc-400">MET MALAYSIA</span>
+          </div>
+
+          <div className="text-xs text-zinc-500">
+            {t("updated").toUpperCase()}:{" "}
+            <span className="text-zinc-400">
+              {new Date(lastUpdated).toLocaleDateString("en-GB", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+              })}
+            </span>{" "}
           </div>
         </div>
       </div>
