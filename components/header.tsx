@@ -56,8 +56,10 @@ export async function Header({
                 hour: "2-digit",
                 minute: "2-digit",
                 hour12: false,
-              })}
-            </span>{" "}
+                timeZone: "Asia/Kuala_Lumpur",
+              })}{" "}
+              MYT
+            </span>
           </div>
         </div>
       </div>

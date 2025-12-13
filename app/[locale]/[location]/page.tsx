@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { getLocationBySlug } from "@/lib/api";
+import { getAllLocationOptions, getLocationBySlug } from "@/lib/api";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/header";
 import { ForecastGrid } from "@/components/forecast-grid";
@@ -15,6 +15,18 @@ type Props = {
 // if the servers cached page has expired, but no one visits, it wont get rebuild
 // ISR is traffic triggered, not time triggered
 export const revalidate = 86400;
+
+export async function generateStaticParams() {
+  const locations = await getAllLocationOptions();
+  const locales = ["en", "ms"];
+
+  return locations.flatMap((location) =>
+    locales.map((locale) => ({
+      locale,
+      location: location.slug,
+    }))
+  );
+}
 
 export default async function WeatherPage({ params }: Props) {
   // destructuring then renaming
