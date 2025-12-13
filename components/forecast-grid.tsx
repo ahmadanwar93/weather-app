@@ -10,7 +10,7 @@ export async function ForecastGrid({ forecasts }: ForecastGridProps) {
   const tc = await getTranslations("weather.conditions");
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl">
       {forecasts.map((forecast) => {
         const date = new Date(forecast.date);
         const dayName = date.toLocaleDateString("en-GB", { weekday: "short" });

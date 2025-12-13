@@ -17,12 +17,6 @@
   --font-family-mono: 'var(--font-geist-mono)', ui-monospace, 'SFMono-Regular', monospace;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   background-color: var(--color-zinc-950);
   color: var(--color-zinc-100);

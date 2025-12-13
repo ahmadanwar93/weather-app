@@ -18,19 +18,21 @@ export async function Header({ currentLocationSlug, locale }: HeaderProps) {
   );
 
   return (
-    <header className="border border-zinc-700 p-4 mb-6 max-w-4xl">
-      <div className="flex justify-between items-center mb-4">
+    <header className="border border-zinc-700 p-4 mb-6 max-w-5xl">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
         <div>
           <h1 className="text-lg tracking-wide">{t("appTitle")}</h1>
           <p className="text-zinc-500 text-sm">{t("subtitle")}</p>
         </div>
-        <div className="text-sm">
-          <span className="text-cyan-400">{t("status")}: </span>
-          <span className="ml-2 text-green-500">{t("online")}</span>
+        <div className="flex flex-col md:items-end gap-2">
+          <div className="text-sm">
+            <span className="text-cyan-400">{t("status")}: </span>
+            <span className="ml-2 text-green-500">{t("online")}</span>
+          </div>
         </div>
       </div>
 
-      <div className="flex items-center gap-4 pt-4 border-t border-zinc-800">
+      <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-zinc-800">
         <LocationDropdown
           locations={locations}
           currentSlug={currentLocationSlug}
