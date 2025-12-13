@@ -16,6 +16,8 @@ type Props = {
 // ISR is traffic triggered, not time triggered
 export const revalidate = 86400;
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const locations = await getAllLocationOptions();
   const locales = ["en", "ms"];
