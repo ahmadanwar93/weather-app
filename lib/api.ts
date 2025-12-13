@@ -4,7 +4,12 @@ const API_URL = "https://api.data.gov.my/weather/forecast";
 // Added two translations key myself for 'Ribut petir di kebanyakan tempat' and 'Hujan di kebanyakan tempat'
 
 // cache the function for 24 hours since it will be updated once daily
-export async function getWeatherData(): Promise<APIResponse> {
+export async function getWeatherData(): Promise<{
+  data: APIResponse;
+  fetchedAt: string;
+}> {
+  const fetchTime = new Date().toISOString();
+
   const response = await fetch(API_URL, {
     next: { revalidate: 86400 },
   });
@@ -13,7 +18,12 @@ export async function getWeatherData(): Promise<APIResponse> {
     throw new Error(`Failed to fetch weather data: ${response.status}`);
   }
 
-  return response.json();
+  const data = await response.json();
+
+  return {
+    data,
+    fetchedAt: fetchTime,
+  };
 }
 
 // groupBy location to get all the available locations returned from the API
@@ -59,13 +69,13 @@ export async function getForecastForLocation(
   locationId: string
 ): Promise<LocationForecast | null> {
   const data = await getWeatherData();
-  const grouped = groupByLocation(data);
+  const grouped = groupByLocation(data.data);
   return grouped.get(locationId) || null;
 }
 
 export async function getAllLocationIds(): Promise<string[]> {
   const data = await getWeatherData();
-  const uniqueIds = new Set(data.map((r) => r.location.location_id));
+  const uniqueIds = new Set(data.data.map((r) => r.location.location_id));
   return Array.from(uniqueIds);
 }
 
@@ -77,13 +87,16 @@ export function locationToSlug(name: string): string {
 // Find location by slug (reverse of locationToSlug)
 export async function getLocationBySlug(
   slug: string
-): Promise<LocationForecast | null> {
-  const data = await getWeatherData();
+): Promise<{ location: LocationForecast; fetchedAt: string } | null> {
+  const { data, fetchedAt } = await getWeatherData();
   const grouped = groupByLocation(data);
 
   for (const location of grouped.values()) {
     if (locationToSlug(location.locationName) === slug) {
-      return location;
+      return {
+        location,
+        fetchedAt,
+      };
     }
   }
 
@@ -98,7 +111,7 @@ export async function getAllLocationOptions(): Promise<
   }>
 > {
   const data = await getWeatherData();
-  const grouped = groupByLocation(data);
+  const grouped = groupByLocation(data.data);
   // we sort it for better UX
   // grouped.values() return an iterator, we have to convert to array first
   // either use Array.from or spread operator

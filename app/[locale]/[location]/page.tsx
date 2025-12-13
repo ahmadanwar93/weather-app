@@ -23,15 +23,14 @@ export default async function WeatherPage({ params }: Props) {
   const { locale, location: locationSlug } = await params;
 
   // Fetch weather data for this location
-  const locationData = await getLocationBySlug(locationSlug);
-
+  const result = await getLocationBySlug(locationSlug);
   // 404 if location not found
-  if (!locationData) {
+  if (!result) {
     notFound();
   }
+  const { location: locationData, fetchedAt } = result;
 
   // split translation based on namespaces
-  const t = await getTranslations("common");
   const tw = await getTranslations("weather");
   const tc = await getTranslations("weather.conditions");
   const ts = await getTranslations("weather.summaryWhen");
@@ -47,7 +46,7 @@ export default async function WeatherPage({ params }: Props) {
         <Header
           currentLocationSlug={locationSlug}
           locale={locale}
-          lastUpdated={new Date().toISOString()}
+          lastUpdated={fetchedAt}
         />
         <div className="border border-zinc-700 p-6 max-w-4xl">
           <p className="text-zinc-500">No forecast data available</p>
@@ -135,17 +134,6 @@ export default async function WeatherPage({ params }: Props) {
               </div>
             </div>
           </div>
-
-          {/* <div className="mt-6 pt-4 border-t border-zinc-800 text-xs text-zinc-500">
-            <div>DATA: MET MALAYSIA</div>
-            <div className="mt-1">
-              {t("updated").toUpperCase()}:{" "}
-              {new Date(today.date).toLocaleDateString()}
-              <span className="text-green-500 ml-2">
-                {t("online").toUpperCase()}
-              </span>
-            </div>
-          </div> */}
         </div>
         <ForecastGrid forecasts={upcomingDays} />
       </div>
