@@ -35,16 +35,27 @@ export async function Header({
             <span className="ml-2 text-green-500">{t("online")}</span>
           </div>
           <div className="text-xs text-zinc-500">
-            DATA: <span className="text-zinc-400">MET MALAYSIA</span>
+            SOURCE:{" "}
+            <a
+              href="https://developer.data.gov.my/realtime-api/weather"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-400 hover:text-cyan-300 underline"
+            >
+              data.gov.my
+            </a>
           </div>
 
           <div className="text-xs text-zinc-500">
             {t("updated").toUpperCase()}:{" "}
             <span className="text-zinc-400">
-              {new Date(lastUpdated).toLocaleDateString("en-GB", {
+              {new Date(lastUpdated).toLocaleString("en-GB", {
                 day: "2-digit",
                 month: "2-digit",
                 year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false,
               })}
             </span>{" "}
           </div>

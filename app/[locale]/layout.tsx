@@ -6,6 +6,7 @@ import { routing } from "../../i18n/routing";
 import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
+import { Metadata } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,6 +21,12 @@ const geistMono = Geist_Mono({
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
+};
+export const metadata: Metadata = {
+  title: "Malaysia Weather Forecast",
+  description:
+    "7-day weather forecast for Malaysia powered by MET Malaysia data",
+  keywords: ["weather", "malaysia", "forecast", "MET Malaysia"],
 };
 
 // this becomes the root layout

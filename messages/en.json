@@ -1,6 +1,6 @@
 {
     "common": {
-        "appTitle": "MET_MY_WEATHER",
+        "appTitle": "WEATHER_FORECAST",
         "subtitle": "7-Day Forecast",
         "location": "Location",
         "updated": "Updated",
