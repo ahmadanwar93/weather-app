@@ -1,6 +1,4 @@
 import { Geist, Geist_Mono } from "next/font/google";
-// @ts-ignore
-// to remove the error
 import "../globals.css";
 import { routing } from "../../i18n/routing";
 import { notFound } from "next/navigation";

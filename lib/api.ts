@@ -1,4 +1,4 @@
-import { APIResponse, ForecastRecord, LocationForecast } from "./types";
+import { APIResponse, LocationForecast } from "./types";
 
 const API_URL = "https://api.data.gov.my/weather/forecast";
 // Added two translations key myself for 'Ribut petir di kebanyakan tempat' and 'Hujan di kebanyakan tempat'
