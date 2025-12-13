@@ -13,5 +13,6 @@ export const routing = defineRouting({
 
 // this is to create locale aware of Next JS navigation primitives
 // for example when redirecting, we dont have to specify locale
+// use it for client component
 export const { Link, redirect, usePathname, useRouter } =
   createNavigation(routing);

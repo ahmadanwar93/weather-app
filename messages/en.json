@@ -14,6 +14,32 @@
         "timeline": "Timeline",
         "morning": "Morning",
         "afternoon": "Afternoon",
-        "night": "Night"
+        "night": "Night",
+        "conditions": {
+            "Tiada hujan": "No rain",
+            "Hujan": "Rain",
+            "Hujan di beberapa tempat": "Scattered rain",
+            "Hujan di satu dua tempat": "Isolated rain",
+            "Ribut petir": "Thunderstorms",
+            "Ribut petir di beberapa tempat": "Scattered thunderstorms",
+            "Ribut petir di satu dua tempat": "Isolated thunderstorms",
+            "Berjerebu": "Hazy",
+            "Hujan di satu dua tempat di kawasan pantai": "Isolated rain over coastal areas",
+            "Hujan di satu dua tempat di kawasan pedalaman": "Isolated rain over inland areas",
+            "Ribut petir di beberapa tempat di kawasan pedalaman": "Scattered thunderstorms over inland areas",
+            "Ribut petir di satu dua tempat di kawasan pantai": "Isolated thunderstorms over coastal areas",
+            "Ribut petir di satu dua tempat di kawasan pedalaman": "Isolated thunderstorms over inland areas",
+            "Ribut petir di kebanyakan tempat": "Isolated thunderstorms in most areas",
+            "Hujan di kebanyakan tempat": "Isolated rains in most areas"
+        },
+        "summaryWhen": {
+            "Pagi": "Morning",
+            "Petang": "Afternoon",
+            "Malam": "Night",
+            "Pagi dan Petang": "Morning and Afternoon",
+            "Pagi dan Malam": "Morning and Night",
+            "Petang dan Malam": "Afternoon and Night",
+            "Sepanjang Hari": "Throughout the Day"
+        }
     }
 }

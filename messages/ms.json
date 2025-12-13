@@ -14,6 +14,32 @@
         "timeline": "Garis Masa",
         "morning": "Pagi",
         "afternoon": "Petang",
-        "night": "Malam"
+        "night": "Malam",
+        "conditions": {
+            "Tiada hujan": "Tiada hujan",
+            "Hujan": "Hujan",
+            "Hujan di beberapa tempat": "Hujan di beberapa tempat",
+            "Hujan di satu dua tempat": "Hujan di satu dua tempat",
+            "Ribut petir": "Ribut petir",
+            "Ribut petir di beberapa tempat": "Ribut petir di beberapa tempat",
+            "Ribut petir di satu dua tempat": "Ribut petir di satu dua tempat",
+            "Berjerebu": "Berjerebu",
+            "Hujan di satu dua tempat di kawasan pantai": "Hujan di satu dua tempat di kawasan pantai",
+            "Hujan di satu dua tempat di kawasan pedalaman": "Hujan di satu dua tempat di kawasan pedalaman",
+            "Ribut petir di beberapa tempat di kawasan pedalaman": "Ribut petir di beberapa tempat di kawasan pedalaman",
+            "Ribut petir di satu dua tempat di kawasan pantai": "Ribut petir di satu dua tempat di kawasan pantai",
+            "Ribut petir di satu dua tempat di kawasan pedalaman": "Ribut petir di satu dua tempat di kawasan pedalaman",
+            "Ribut petir di kebanyakan tempat": "Ribut petir di kebanyakan tempat",
+            "Hujan di kebanyakan tempat": "Hujan di kebanyakan tempat"
+        },
+        "summaryWhen": {
+            "Pagi": "Pagi",
+            "Petang": "Petang",
+            "Malam": "Malam",
+            "Pagi dan Petang": "Pagi dan Petang",
+            "Pagi dan Malam": "Pagi dan Malam",
+            "Petang dan Malam": "Petang dan Malam",
+            "Sepanjang Hari": "Sepanjang Hari"
+        }
     }
 }
