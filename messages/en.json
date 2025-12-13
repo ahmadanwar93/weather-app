@@ -5,7 +5,8 @@
         "location": "Location",
         "updated": "Updated",
         "status": "Status",
-        "online": "Online"
+        "online": "Online",
+        "generated": "Page generated"
     },
     "weather": {
         "today": "Today",

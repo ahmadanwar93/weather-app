@@ -47,7 +47,7 @@ export async function Header({
           </div>
 
           <div className="text-xs text-zinc-500">
-            {t("updated").toUpperCase()}:{" "}
+            {t("generated").toUpperCase()}:{" "}
             <span className="text-zinc-400">
               {new Date(lastUpdated).toLocaleString("en-GB", {
                 day: "2-digit",

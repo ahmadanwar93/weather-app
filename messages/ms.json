@@ -5,7 +5,8 @@
         "location": "Lokasi",
         "updated": "Dikemaskini",
         "status": "Status",
-        "online": "Dalam Talian"
+        "online": "Dalam Talian",
+        "generated": "Halaman dijana"
     },
     "weather": {
         "today": "Hari Ini",

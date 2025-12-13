@@ -3,16 +3,13 @@ import { APIResponse, LocationForecast } from "./types";
 const API_URL = "https://api.data.gov.my/weather/forecast";
 // Added two translations key myself for 'Ribut petir di kebanyakan tempat' and 'Hujan di kebanyakan tempat'
 
-// cache the function for 24 hours since it will be updated once daily
 export async function getWeatherData(): Promise<{
   data: APIResponse;
   fetchedAt: string;
 }> {
   const fetchTime = new Date().toISOString();
 
-  const response = await fetch(API_URL, {
-    next: { revalidate: 86400 },
-  });
+  const response = await fetch(API_URL);
 
   if (!response.ok) {
     throw new Error(`Failed to fetch weather data: ${response.status}`);

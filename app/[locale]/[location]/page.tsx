@@ -28,7 +28,7 @@ export default async function WeatherPage({ params }: Props) {
   if (!result) {
     notFound();
   }
-  const { location: locationData, fetchedAt } = result;
+  const { location: locationData } = result;
 
   // split translation based on namespaces
   const tw = await getTranslations("weather");
@@ -40,13 +40,15 @@ export default async function WeatherPage({ params }: Props) {
 
   const upcomingDays = locationData.forecasts.slice(1, 7);
 
+  const buildTime = new Date().toISOString();
+
   if (!today) {
     return (
       <main className="min-h-screen p-8">
         <Header
           currentLocationSlug={locationSlug}
           locale={locale}
-          lastUpdated={fetchedAt}
+          lastUpdated={buildTime}
         />
         <div className="border border-zinc-700 p-6 max-w-4xl">
           <p className="text-zinc-500">No forecast data available</p>
