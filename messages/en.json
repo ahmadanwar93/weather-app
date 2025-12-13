@@ -1,0 +1,19 @@
+{
+    "common": {
+        "appTitle": "MET_MY_WEATHER",
+        "subtitle": "7-Day Forecast",
+        "location": "Location",
+        "updated": "Updated",
+        "status": "Status",
+        "online": "Online"
+    },
+    "weather": {
+        "today": "Today",
+        "temperature": "Temperature",
+        "summary": "Summary",
+        "timeline": "Timeline",
+        "morning": "Morning",
+        "afternoon": "Afternoon",
+        "night": "Night"
+    }
+}

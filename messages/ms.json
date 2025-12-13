@@ -1,0 +1,19 @@
+{
+    "common": {
+        "appTitle": "MET_MY_WEATHER",
+        "subtitle": "Ramalan 7 Hari",
+        "location": "Lokasi",
+        "updated": "Dikemaskini",
+        "status": "Status",
+        "online": "Dalam Talian"
+    },
+    "weather": {
+        "today": "Hari Ini",
+        "temperature": "Suhu",
+        "summary": "Ringkasan",
+        "timeline": "Garis Masa",
+        "morning": "Pagi",
+        "afternoon": "Petang",
+        "night": "Malam"
+    }
+}
