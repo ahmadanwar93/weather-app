@@ -11,24 +11,26 @@ type Props = {
   }>;
 };
 
-// ISR does not rebuild on schedule. It will rebuilds on demand when traffic occurs
-// if the servers cached page has expired, but no one visits, it wont get rebuild
-// ISR is traffic triggered, not time triggered
-export const revalidate = 86400;
+// For some reason i cannot make ISR works
 
-export const dynamicParams = false;
+// // ISR does not rebuild on schedule. It will rebuilds on demand when traffic occurs
+// // if the servers cached page has expired, but no one visits, it wont get rebuild
+// // ISR is traffic triggered, not time triggered
+// export const revalidate = 86400;
 
-export async function generateStaticParams() {
-  const locations = await getAllLocationOptions();
-  const locales = ["en", "ms"];
+// export const dynamicParams = false;
 
-  return locations.flatMap((location) =>
-    locales.map((locale) => ({
-      locale,
-      location: location.slug,
-    }))
-  );
-}
+// export async function generateStaticParams() {
+//   const locations = await getAllLocationOptions();
+//   const locales = ["en", "ms"];
+
+//   return locations.flatMap((location) =>
+//     locales.map((locale) => ({
+//       locale,
+//       location: location.slug,
+//     }))
+//   );
+// }
 
 export default async function WeatherPage({ params }: Props) {
   // destructuring then renaming

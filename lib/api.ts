@@ -9,7 +9,9 @@ export async function getWeatherData(): Promise<{
 }> {
   const fetchTime = new Date().toISOString();
 
-  const response = await fetch(API_URL);
+  const response = await fetch(API_URL, {
+    next: { revalidate: 86400 },
+  });
 
   if (!response.ok) {
     throw new Error(`Failed to fetch weather data: ${response.status}`);
